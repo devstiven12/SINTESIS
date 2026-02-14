@@ -318,9 +318,12 @@ body {
   color: var(--gray-text);
 }
 
+/* About Cards Styles */
 .about-content {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start; /* Prevents cards from stretching to match height of expanded card */
   gap: calc(var(--spacing) * 4);
   margin-bottom: calc(var(--spacing) * 8);
 }
@@ -332,7 +335,49 @@ body {
   transition: all 0.3s ease;
   border: 1px solid rgba(0, 217, 255, 0.1);
   width: 100%;
+  max-width: 350px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.card-reveal-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+
+/* Hover effect for PC */
+@media (hover: hover) {
+  .about-card:hover .card-reveal-content {
+    max-height: 500px; /* Adjust based on content */
+    opacity: 1;
+    margin-top: calc(var(--spacing) * 2);
+  }
+
+  .about-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 25px rgba(0, 217, 255, 0.2);
+  }
+}
+
+/* Active class for Mobile/Touch */
+.about-card.active .card-reveal-content {
+  max-height: 1000px; /* Larger max-height for mobile to ensure full content shows */
+  opacity: 1;
+  margin-top: calc(var(--spacing) * 2);
+}
+
+.about-card.active {
+  transform: translateY(-5px);
+  border-color: var(--primary-color);
+  box-shadow: 0 5px 15px rgba(0, 217, 255, 0.2);
 }
 
 .values-list {
@@ -340,7 +385,7 @@ body {
   padding: 0;
   margin: 0 auto;
   text-align: left;
-  max-width: 800px;
+  width: 100%;
 }
 
 .values-list li {
@@ -371,21 +416,21 @@ body {
 }
 
 .card-icon {
-  width: 64px;
-  height: 64px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  border-radius: calc(var(--spacing) * 2);
-  margin: 0 auto calc(var(--spacing) * 3);
+  border-radius: calc(var(--spacing) * 1.5);
+  margin: 0 auto calc(var(--spacing) * 2);
   color: var(--darker-bg);
 }
 
 .card-title {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  margin-bottom: calc(var(--spacing) * 2);
+  margin-bottom: calc(var(--spacing) * 1.5);
   color: var(--light-text);
 }
 

@@ -100,30 +100,65 @@ if (contactForm) {
     link.rel = 'noopener noreferrer';
     document.body.appendChild(link);
     link.click();
-    document.body.removeChild(link);
 
-    showMessage('Abriendo WhatsApp en una nueva pestaña...', 'success');
+    showMessage('¡Mensaje listo para enviar! Abriendo WhatsApp...', 'success');
     contactForm.reset();
-
-    setTimeout(() => {
-      hideMessage();
-    }, 5000);
   });
 }
 
-function showMessage(text, type) {
-  formMessage.textContent = text;
+function showMessage(message, type) {
+  formMessage.textContent = message;
   formMessage.className = `form-message ${type}`;
-}
+  formMessage.style.display = 'block';
 
-function hideMessage() {
-  formMessage.className = 'form-message';
-  formMessage.textContent = '';
+  setTimeout(() => {
+    formMessage.style.display = 'none';
+  }, 5000);
 }
 
 function validateEmail(email) {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);
+}
+
+/* Mobile Card Interaction Logic */
+const aboutCards = document.querySelectorAll('.about-card');
+
+if (aboutCards.length > 0) {
+  // Check if device supports hover
+  const isTouchDevice = () => {
+    return (('ontouchstart' in window) ||
+      (navigator.maxTouchPoints > 0) ||
+      (navigator.msMaxTouchPoints > 0));
+  };
+
+  aboutCards.forEach(card => {
+    card.addEventListener('click', (e) => {
+      // Only apply click logic on touch devices or small screens
+      if (isTouchDevice() || window.innerWidth <= 768) {
+        // Remove active class from other cards
+        aboutCards.forEach(c => {
+          if (c !== card) {
+            c.classList.remove('active');
+          }
+        });
+        
+        // Toggle active class on clicked card
+        card.classList.toggle('active');
+      }
+    });
+  });
+
+  // Close card when clicking outside
+  document.addEventListener('click', (e) => {
+    if (isTouchDevice() || window.innerWidth <= 768) {
+      if (!e.target.closest('.about-card')) {
+        aboutCards.forEach(card => {
+          card.classList.remove('active');
+        });
+      }
+    }
+  });
 }
 
 document.addEventListener('click', (e) => {
