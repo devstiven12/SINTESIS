@@ -8,7 +8,8 @@
       content="Sintesis - Evolución Tecnológica. Soluciones innovadoras para tu negocio."
     />
     <title>Sintesis - Evolución Tecnológica</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/universe.css" />
     <meta
       property="og:image"
       content="https://bolt.new/static/og_default.png"
@@ -79,11 +80,17 @@
     <main class="main">
       <!-- Home Section -->
       <section class="home section" id="inicio">
+        <!-- Video Background -->
+        <video autoplay muted loop playsinline id="bg-video">
+          <source src="/images/VideoDeFondo.mp4" type="video/mp4" />
+        </video>
+        <div class="video-overlay"></div>
+
         <div class="home-container container">
           <div class="home-content">
             <h1 class="home-title">
               Desarrollo tecnológico
-              <span class="title-accent">a sus manos</span>
+              <span class="title-accent">a tus manos</span>
             </h1>
             <p class="home-description">
               Transformamos ideas en soluciones digitales innovadoras. Llevamos
@@ -94,98 +101,6 @@
               <a href="#nosotros" class="button button-secondary"
                 >Conocer más</a
               >
-            </div>
-          </div>
-          <div class="home-image">
-            <div class="home-image-wrapper">
-              <svg
-                class="tech-illustration"
-                viewBox="0 0 400 400"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle
-                  cx="200"
-                  cy="200"
-                  r="150"
-                  fill="none"
-                  stroke="url(#gradient1)"
-                  stroke-width="2"
-                  opacity="0.3"
-                />
-                <circle
-                  cx="200"
-                  cy="200"
-                  r="120"
-                  fill="none"
-                  stroke="url(#gradient1)"
-                  stroke-width="2"
-                  opacity="0.5"
-                />
-                <circle
-                  cx="200"
-                  cy="200"
-                  r="90"
-                  fill="none"
-                  stroke="url(#gradient1)"
-                  stroke-width="2"
-                  opacity="0.7"
-                />
-                <circle cx="200" cy="200" r="8" fill="url(#gradient1)" />
-                <circle cx="200" cy="80" r="6" fill="#00d9ff" />
-                <circle cx="320" cy="200" r="6" fill="#00d9ff" />
-                <circle cx="200" cy="320" r="6" fill="#00d9ff" />
-                <circle cx="80" cy="200" r="6" fill="#00d9ff" />
-                <line
-                  x1="200"
-                  y1="200"
-                  x2="200"
-                  y2="80"
-                  stroke="url(#gradient1)"
-                  stroke-width="2"
-                />
-                <line
-                  x1="200"
-                  y1="200"
-                  x2="320"
-                  y2="200"
-                  stroke="url(#gradient1)"
-                  stroke-width="2"
-                />
-                <line
-                  x1="200"
-                  y1="200"
-                  x2="200"
-                  y2="320"
-                  stroke="url(#gradient1)"
-                  stroke-width="2"
-                />
-                <line
-                  x1="200"
-                  y1="200"
-                  x2="80"
-                  y2="200"
-                  stroke="url(#gradient1)"
-                  stroke-width="2"
-                />
-                <defs>
-                  <linearGradient
-                    id="gradient1"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="100%"
-                  >
-                    <stop
-                      offset="0%"
-                      style="stop-color: #00d9ff; stop-opacity: 1"
-                    />
-                    <stop
-                      offset="100%"
-                      style="stop-color: #0080ff; stop-opacity: 1"
-                    />
-                  </linearGradient>
-                </defs>
-              </svg>
             </div>
           </div>
         </div>
@@ -200,7 +115,7 @@
           </div>
 
           <div class="about-content">
-            <div class="about-card">
+            <div class="about-card full-width">
               <div class="card-icon">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -218,12 +133,17 @@
               </div>
               <h3 class="card-title">Misión</h3>
               <p class="card-description">
-                Proporcionar soluciones tecnológicas innovadoras que impulsen el
-                crecimiento y la transformación digital de nuestros clientes.
+                Nuestra misión en Síntesis es construir un ecosistema innovador
+                que integre la tecnología Web3, los pagos híbridos y el
+                blockchain con soluciones prácticas para empresas y comunidades.
+                Buscamos facilitar la transición hacia un mundo digital más
+                seguro y transparente, ofreciendo herramientas como facturación
+                electrónica, aplicaciones empresariales de alto impacto y
+                proyectos sociales que promuevan el bienestar animal y humano.
               </p>
             </div>
 
-            <div class="about-card">
+            <div class="about-card full-width">
               <div class="card-icon">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -241,12 +161,17 @@
               </div>
               <h3 class="card-title">Visión</h3>
               <p class="card-description">
-                Ser líderes en innovación tecnológica, reconocidos por nuestra
-                excelencia y compromiso con el éxito de nuestros clientes.
+                Ser reconocidos como un referente global en la integración de
+                tecnologías emergentes y responsabilidad social, liderando el
+                camino hacia un futuro donde las transacciones digitales y
+                físicas convivan de manera armónica, las empresas alcancen mayor
+                visibilidad mediante soluciones tecnológicas, y los animales
+                reciban protección y cuidado en un entorno sostenible y
+                solidario.
               </p>
             </div>
 
-            <div class="about-card">
+            <div class="about-card full-width">
               <div class="card-icon">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -263,10 +188,37 @@
                 </svg>
               </div>
               <h3 class="card-title">Valores</h3>
-              <p class="card-description">
-                Innovación, calidad, compromiso y transparencia guían cada uno
-                de nuestros proyectos y relaciones con clientes.
-              </p>
+              <ul class="values-list">
+                <li>
+                  <strong>Innovación:</strong> Apostamos por la creación de
+                  soluciones disruptivas en Web3, blockchain y desarrollo de
+                  aplicaciones.
+                </li>
+                <li>
+                  <strong>Transparencia:</strong> Promovemos confianza en cada
+                  transacción, ya sea física o digital.
+                </li>
+                <li>
+                  <strong>Responsabilidad social:</strong> Nos comprometemos con
+                  el bienestar animal y la construcción de comunidades más
+                  humanas y solidarias.
+                </li>
+                <li>
+                  <strong>Colaboración:</strong> Trabajamos junto a
+                  profesionales, empresas y aliados estratégicos para generar
+                  impacto positivo.
+                </li>
+                <li>
+                  <strong>Sostenibilidad:</strong> Impulsamos proyectos que
+                  equilibren el crecimiento tecnológico con el cuidado del
+                  entorno y los seres vivos.
+                </li>
+                <li>
+                  <strong>Accesibilidad:</strong> Creamos herramientas que
+                  permitan a empresas y personas integrarse fácilmente al mundo
+                  digital.
+                </li>
+              </ul>
             </div>
           </div>
 
